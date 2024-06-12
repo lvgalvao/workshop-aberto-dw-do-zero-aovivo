@@ -36,3 +36,20 @@ def get_data():
         public.dm_commodities;
     """
     df = pd.read_sql(query, engine)
+    return df
+
+# Configurar a página do Streamlit
+st.set_page_config(page_title='Dashboard do diretor', layout='wide')
+
+# Título do Dashboard
+st.title('Esse e um texto')
+
+# Descrição
+st.write("""
+Este dashboard mostra os dados de commodities e suas transações.
+""")
+
+# Obter os dados
+df = get_data()
+
+st.dataframe(df)
